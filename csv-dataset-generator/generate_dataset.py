@@ -1,4 +1,4 @@
-from typing import tuple
+from typing import Tuple
 import pandas as pd
 from numpy import random
 
@@ -12,7 +12,7 @@ def generate_data() -> dict:
     x2 = random.randint(1, 50, 100)
     
     x: zip[tuple[int, int]] = zip(x1, x2)
-    y = [(5.5 * a + 3.8 * b + 15) for a, b in x]    # values for the slopes(5.5, 3.8), and y-intercept(15) can be changed
+    y = [round((5.5 * a + 3.8 * b + 15), 4) for a, b in x]    # values for the slopes(5.5, 3.8), and y-intercept(15) can be changed
     return {'x1': x1, 'x2': x2, 'y': y}
 
 
@@ -27,5 +27,5 @@ if __name__ == '__main__':
     data = generate_data()
     sample_data = convert_to_dataframe(data)
 
-    file_path = ""  #enter destination file path to store dataset
+    file_path = "../csv-dataset-generator/dataset.csv"  #enter destination file path to store dataset
     sample_data.to_csv(file_path)
