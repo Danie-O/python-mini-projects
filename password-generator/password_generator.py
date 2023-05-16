@@ -2,8 +2,9 @@
 import random
 import string
 
+
 # Generate a random password given a number of params as specified by a user 
-def generate_pwd(min_length: int, numbers: bool=True, special_characters: bool=True) -> string:
+def generate_password(min_length: int, numbers: bool=True, special_characters: bool=True) -> string:
     letters = string.ascii_letters
     digits = string.digits
     special_characters = string.punctuation
@@ -46,5 +47,5 @@ min_length = int(input('Enter the minimum length of your password: '))
 numbers = input("Do you want your password to contain numbers (y/n)").lower() == "y"
 special_characters = input("Do you want your password to contain special characters (y/n)").lower() == "y"
 
-password = generate_pwd(min_length, numbers, special_characters)
+password = generate_password(min_length, numbers, special_characters)
 print(f"Your randomly generated password is: {password}")
