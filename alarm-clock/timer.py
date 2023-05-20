@@ -9,12 +9,12 @@ CLEAR = "\033[2J"
 CLEAR_AND_RETURN = "\033[H"
 
 def find_timedelta(alarm_time: str) -> int:
+    """Calculate difference(timedelta) between current time & when user wants alarm to sound, in seconds."""
     current_time = dt.now()
     todays_date = date.today().strftime("%Y-%m-%d")
     alarm_time = " ".join([todays_date, alarm_time])
 
     deadline = dt.strptime(alarm_time, "%Y-%m-%d %H:%M:%S")
-
     delta = deadline - current_time
     seconds = int(delta.total_seconds())
     return seconds
@@ -22,6 +22,7 @@ def find_timedelta(alarm_time: str) -> int:
 # find_timedelta("19:30:00")
 
 def set_alarm(by_seconds: bool=False, by_time: bool=False):
+    """Display countdown in seconds and sound alarm when countdown elapses."""
     time_elapsed = 0
     print(CLEAR)
 
